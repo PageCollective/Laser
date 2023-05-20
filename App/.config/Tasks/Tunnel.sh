@@ -12,4 +12,4 @@ tunnel="${1:-$TUNNEL}"
 ngrok http              \
     --subdomain=$tunnel \
     --region=eu         \
-    3000
+    8000

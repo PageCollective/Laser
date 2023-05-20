@@ -1,14 +1,20 @@
 
 export default Route
 
-import Header from '../Components/Header.tsx'
+import { AppProps } from 'Fresh/server.ts'
+import { Head } from 'Fresh/runtime.ts'
 
-function Route ( { children } : { children : React.ReactNode } ){
+
+function Route ( { Component } : AppProps ){
     return <>
 
-        <Header />
+        <Head>
 
-        { children }
+            <link rel = 'stylesheet' href = '/app.css' />
+
+        </Head>
+
+        <Component />
 
     </>
 }

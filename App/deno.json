@@ -7,13 +7,15 @@
 
     "compilerOptions" : {
 
-        "jsxImportSource" : "https://esm.sh/v113/react@18.2.0" ,
-        "jsx" : "react-jsx" ,
+        "jsxImportSource": "preact" ,
+        "jsx": "react-jsx",
 
         "lib" : [
-            "dom",
+
+            "dom.asynciterable",
             "dom.iterable",
-            "dom.extras",
+            "dom",
+
             "deno.ns"
         ]
     },
