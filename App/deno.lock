@@ -204,8 +204,9 @@
   },
   "npm": {
     "specifiers": {
-      "@shopify/shopify-api": "@shopify/shopify-api@7.1.0",
-      "@shopify/shopify-api@7.1.0": "@shopify/shopify-api@7.1.0"
+      "@shopify/shopify-api": "@shopify/shopify-api@7.2.0",
+      "@shopify/shopify-api@7.1.0": "@shopify/shopify-api@7.1.0",
+      "@shopify/shopify-api@7.2.0": "@shopify/shopify-api@7.2.0"
     },
     "packages": {
       "@shopify/network@3.2.1": {
@@ -214,6 +215,18 @@
       },
       "@shopify/shopify-api@7.1.0": {
         "integrity": "sha512-5G05wqlD8Pk4Z6cRfbLkDZqTjz55XsBwJtLaIin+r5CRTC3Ny9oz3xkgH8AgiOa5UD6EZ3+ezB+QfupTHFadnA==",
+        "dependencies": {
+          "@shopify/network": "@shopify/network@3.2.1",
+          "compare-versions": "compare-versions@5.0.3",
+          "isbot": "isbot@3.6.10",
+          "jose": "jose@4.14.4",
+          "node-fetch": "node-fetch@2.6.11",
+          "tslib": "tslib@2.5.2",
+          "uuid": "uuid@9.0.0"
+        }
+      },
+      "@shopify/shopify-api@7.2.0": {
+        "integrity": "sha512-mjdVYIVw5Ko8y5yqT7gHtw2vnT4aOavPp3Ju0r8rhg4V314T0gMKtuPn8OJ1lljjtZnR8vxpyEOBFLJanfyODQ==",
         "dependencies": {
           "@shopify/network": "@shopify/network@3.2.1",
           "compare-versions": "compare-versions@5.0.3",
