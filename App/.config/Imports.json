@@ -20,6 +20,7 @@
         "Zod" : "https://deno.land/x/zod/mod.ts" ,
         "Path" : "https://deno.land/std@0.188.0/path/mod.ts" ,
         "Yaml" : "https://deno.land/std@0.188.0/yaml/mod.ts" ,
-        "DotEnv" : "https://deno.land/std@0.188.0/dotenv/mod.ts"
+        "DotEnv" : "https://deno.land/std@0.188.0/dotenv/mod.ts" ,
+        "Shopify/Adapter" : "npm:@shopify/shopify-api@7.2.0/adapters/node"
     }
 }

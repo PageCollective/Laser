@@ -1,7 +1,8 @@
 
 export { authenticate }
 
-import 'npm:@shopify/shopify-api/adapters/node'
+import 'Shopify/Adapter'
+
 
 import { RestResources , restResources } from 'RestResources'
 import { ApiVersion, shopifyApi } from 'Shopify'

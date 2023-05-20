@@ -171,6 +171,7 @@
     "https://deno.land/x/zod@v3.21.4/locales/en.ts": "a7a25cd23563ccb5e0eed214d9b31846305ddbcdb9c5c8f508b108943366ab4c",
     "https://deno.land/x/zod@v3.21.4/mod.ts": "64e55237cb4410e17d968cd08975566059f27638ebb0b86048031b987ba251c4",
     "https://deno.land/x/zod@v3.21.4/types.ts": "b5d061babea250de14fc63764df5b3afa24f2b088a1d797fc060ba49a0ddff28",
+    "https://esm.sh/@shopify/shopify-api@7.2.0/adapters/node": "3b8d06e197b04ceb6a743e46631f5f17846d8ee5925f23577570fe23c62a8f93",
     "https://esm.sh/mitt@3.0.0?pin=v110": "435639770753ec5fb1bccbbf3d78aadbfd03e6ff8b5bb4e47ff9f3141f3600a4",
     "https://esm.sh/stable/react@18.2.0/deno/jsx-runtime.js": "aea305f042cbf1e7accfc35445f07596fd5b141174664697b6cd39dd1c128056",
     "https://esm.sh/stable/react@18.2.0/deno/react.mjs": "a5a73ee24acca4744ee22c51d9357f31968d1f684ce253bde222b4e26d09f49f",
@@ -200,7 +201,13 @@
     "https://esm.sh/v117/@types/react@18.2.0/index.d.ts": "9d9370728227c924747ecf917ee8e95832169c8f693859499f479fe6d106a1f6",
     "https://esm.sh/v117/@types/react@18.2.0/jsx-runtime~.d.ts": "7efb28f322f647d652575b99e1d9cda1af17e93bdf6f649cc5d0a8527fc75324",
     "https://esm.sh/v117/@types/scheduler@0.16.3/tracing.d.ts": "f5a8b384f182b3851cec3596ccc96cb7464f8d3469f48c74bf2befb782a19de5",
-    "https://esm.sh/v117/csstype@3.1.2/index.d.ts": "4c68749a564a6facdf675416d75789ee5a557afda8960e0803cf6711fa569288"
+    "https://esm.sh/v117/csstype@3.1.2/index.d.ts": "4c68749a564a6facdf675416d75789ee5a557afda8960e0803cf6711fa569288",
+    "https://esm.sh/v122/@shopify/shopify-api@7.2.0/adapters/node/index.d.ts": "61f6ff1733457f18b6db67526704390afad57c222aeb8446cfc200c7e7268540",
+    "https://esm.sh/v122/@shopify/shopify-api@7.2.0/es2022/adapters/node.js": "708e3c04a60825ace5729aed12f0e7f182de033366d2f9083048355b6fc182f2",
+    "https://esm.sh/v122/node_events.js": "507b1d9405b8384264d683e0508416c4be85498e65d32d0fcf64d6d353a30151",
+    "https://esm.sh/v122/node_fetch.js": "eb4be18bc6ed9f45aacb943cc12e2d9a7dff73537dc6155b96e8c7ab3f79b6ba",
+    "https://esm.sh/v122/node_process.js": "138682d1c2af338932526443b7513103b898a9460d3e461ee315d3a68060342a",
+    "https://esm.sh/v122/tslib@2.5.2/es2022/tslib.mjs": "457149483da24c26df14aca473b7a2ec2ff9962f1aca342137d8175897ee0e63"
   },
   "npm": {
     "specifiers": {
