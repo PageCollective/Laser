@@ -12,6 +12,6 @@ set +a
 deno run                                            \
     --allow-read                                    \
     --allow-net                                     \
-    --allow-env='Config,MODULES_CACHE_DIR'          \
+    --allow-env='Config,MODULES_CACHE_DIR,ALEPH_PKG_URI,DENO_DEPLOYMENT_ID,ALEPH_RELOAD_FLAG'          \
     --allow-run=$HOME/.deno/bin/deno                \
     Source/server.ts
