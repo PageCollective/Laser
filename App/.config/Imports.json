@@ -1,0 +1,25 @@
+{
+    "imports": {
+        "std/": "https://deno.land/std@0.180.0/",
+        "aleph/": "https://deno.land/x/aleph/",
+        "aleph/server": "https://deno.land/x/aleph/server/mod.ts",
+        "aleph/dev": "https://deno.land/x/aleph/server/dev.ts",
+        "aleph/plugins/deploy": "https://deno.land/x/aleph/plugins/deploy.ts",
+        "aleph/plugins/unocss": "https://deno.land/x/aleph/plugins/unocss.ts",
+        "aleph/plugins/mdx": "https://deno.land/x/aleph/plugins/mdx.ts",
+        "aleph/react": "https://deno.land/x/aleph/framework/react/mod.ts",
+        "aleph/plugins/react": "https://deno.land/x/aleph/framework/react/plugin.ts",
+        "@unocss/core": "https://esm.sh/v113/@unocss/core@0.50.6",
+        "@unocss/preset-uno": "https://esm.sh/v113/@unocss/preset-uno@0.50.6",
+        "react": "https://esm.sh/v113/react@18.2.0",
+        "react-dom": "https://esm.sh/v113/react-dom@18.2.0",
+        "react-dom/": "https://esm.sh/v113/react-dom@18.2.0/",
+        "@mdx-js/react": "https://esm.sh/v113/@mdx-js/react@2.3.0" ,
+        "Shopify" : "npm:@shopify/shopify-api@7.1.0" ,
+        "RestResources" : "npm:@shopify/shopify-api@7.1.0/rest/admin/2023-04/" ,
+        "Zod" : "https://deno.land/x/zod/mod.ts" ,
+        "Path" : "https://deno.land/std@0.188.0/path/mod.ts" ,
+        "Yaml" : "https://deno.land/std@0.188.0/yaml/mod.ts" ,
+        "DotEnv" : "https://deno.land/std@0.188.0/dotenv/mod.ts"
+    }
+}

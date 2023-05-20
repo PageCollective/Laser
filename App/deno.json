@@ -1,0 +1,38 @@
+{
+    "tasks" : {
+        "tunnel" : "bash .config/Tasks/Tunnel.sh" ,
+        "dev" : "bash .config/Tasks/Develop.sh" ,
+        "env" : ".config/Tasks/Environment.ts"
+    },
+
+    "compilerOptions" : {
+
+        "jsxImportSource" : "https://esm.sh/v113/react@18.2.0" ,
+        "jsx" : "react-jsx" ,
+
+        "lib" : [
+            "dom",
+            "dom.iterable",
+            "dom.extras",
+            "deno.ns"
+        ]
+    },
+
+    "importMap" : "./.config/Imports.json" ,
+
+    "suggest": {
+
+        "completeFunctionCalls": false,
+        "autoImports": true,
+        "names": true,
+        "paths": true,
+
+        "imports": {
+            "autoDiscover": true,
+            "hosts": {
+                "https://deno.land": true ,
+                "https://npmjs.com/" : true
+            }
+        }
+    }
+}

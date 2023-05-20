@@ -1,0 +1,33 @@
+
+Shopify:
+
+    #
+    #   The 'API secret key' value found in the
+    #   development app 'API credentials' section
+    #
+
+    Secret : XYZ
+
+    #
+    #   The 'Admin API access token' found in the
+    #   development app 'API credentials' section
+    #
+
+    Token : shpat_XYZ
+
+    #
+    #   The hostname of the store where the app will run
+    #
+
+    Host : X.MyShopify.Com
+
+
+App:
+
+    #
+    #   Url to which Shopify redirect when
+    #   the user click on the app icon
+    #
+
+    Host : # Ngrok for testing / domain for production
+
