@@ -1,13 +1,175 @@
 
 :root {
-    --Color-Secondary : #0c1714 ;
-    --Color-Tertiary : #19202f ;
-    --Color-Primary : #0c1714 ;
-    --Color-Accent : #4d6693 ;
-    --Color-Text : #deede8 ;
+
+    --Color-Tertiary-Raw : 39 , 50 , 68 ;
+
+    --Color-Secondary : #ffffff ;
+    --Color-Tertiary : rgb(var(--Color-Tertiary-Raw)) ;
+    --Color-Primary : #eceff4 ;
+    --Color-Accent : #303e54 ;
+    --Text-Secondary : #ffffff ;
+    --Text-Primary : #020203 ;
 }
 
 html {
-    background : var(--Color-Primary) ;
-    color : var(--Color-Text) ;
+
+    background : var( --Color-Primary ) ;
+    color : var( --Color-Primary ) ;
+
+    font-family : monospace ;
+}
+
+body {
+
+    height : 100dvh ;
+    width : 100dvw ;
+
+    margin : 0 ;
+}
+
+
+.button {
+    user-select : none ;
+    cursor : pointer ;
+    position : relative ;
+    z-index : 0 ;
+}
+
+.button.shadow:is( :hover , :focus ){
+    transform : translateY( -0.1rem ) ;
+    filter: drop-shadow( 0px 3px 2px rgba( var(--hover) , 20% )) ;
+}
+
+.button.fill::before {
+    content : '' ;
+    position : absolute ;
+    inset : 0 ;
+    background: rgb( 39 , 50 , 68 ) ;
+    transition: all 0.2s ease;
+    transform-origin: center;
+    transform: scale(0);
+    border-radius: 50%;
+    z-index : -1 ;
+}
+  .button.fill:hover::before{
+    transform: scale(1);
+  }
+
+
+#Main {
+
+    justify-content : center ;
+    align-items : center ;
+    display : flex ;
+
+    height : 100% ;
+    width : 100% ;
+}
+
+
+.Schedule--Wrapper {
+
+    border-radius : 0.5rem ;
+
+    min-height : 50% ;
+    height : fit-content ;
+
+    max-width : min( 48rem , 90% ) ;
+    width : 100% ;
+
+    grid-template-columns : 1fr 1fr auto ;
+    grid-template-rows : auto auto 1fr ;
+    grid-gap : 0 1rem ;
+    display : grid ;
+
+    overflow : hidden ;
+
+    grid-template-areas :
+        'Beauticians Details Actions'
+        'Weekdays Details Actions'
+        'Appointments Details Actions' ;
+}
+
+.Schedule--Wrapper > div {
+
+    background : var(--Color-Secondary ) ;
+    padding : 0.5rem ;
+}
+
+
+.Schedule--Wrapper > .Schedule--Actions {
+
+    grid-area : Actions ;
+
+    border : var(--Color-Tertiary ) 2px solid ;
+
+    border-radius : 0 0.5rem 0.5rem 0 ;
+    border-width : 0 2px 2px 0 ;
+}
+
+.Schedule--Wrapper .Schedule--Help {
+    --hover : var(--Color-Tertiary-Raw) ;
+}
+
+.Schedule--Wrapper > .Schedule--Weekdays {
+    grid-area : Weekdays ;
+}
+
+.Schedule--Wrapper > .Schedule--Details {
+
+    grid-area : Details ;
+
+    background : var( --Color-Tertiary ) ;
+}
+
+.Schedule--Wrapper > .Schedule--Appointments {
+
+    grid-area : Appointments ;
+
+    border : var( --Color-Tertiary ) 2px solid ;
+
+    border-radius : 0.5rem 0 0 0.5rem ;
+    border-width : 0 0 2px 0 ;
+}
+
+.Schedule--Wrapper > .Beautician-Selection {
+
+    grid-area : Beauticians ;
+
+    padding : 1rem 2rem ;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Beautician-Selection > div {
+    aspect-ratio: 1;
+    width: 5rem;
+    background: transparent ;
+    color : var( --Text-Primary ) ;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    overflow : hidden ;
+}
+
+.Beautician-Selection > div:hover {
+    color : var( --Text-Secondary ) ;
+}
+
+.Beautician-Selection > div::after {
+    content : '' ;
+    aspect-ratio: 1;
+    position: absolute;
+    inset : 0;
+    border-radius: 50%;
+    border: 2px solid rgb( 39 , 50 , 68 ) ;
+    z-index : -2 ;
+}
+
+.Beautician-Selection > div:after {
+    --hover : rgb( 39 , 50 , 68 ) ;
 }

@@ -13,7 +13,10 @@ function BeauticianSelection ( { beauticians } : Props ){
         .map(toSelection)
 
     return <>
-        <div>{ choices }</div>
+
+        <div class = 'Beautician-Selection' >
+            { choices }
+        </div>
     </>
 }
 
@@ -21,7 +24,7 @@ function BeauticianSelection ( { beauticians } : Props ){
 function toSelection ( beautician : Beautician ){
 
     return <>
-        <div id = { beautician.name } >
+        <div key = { beautician.name } class = 'button fill' >
             { beautician.name }
         </div>
     </>

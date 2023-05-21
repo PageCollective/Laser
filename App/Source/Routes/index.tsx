@@ -4,6 +4,9 @@ export default Route
 import { fetchBeauticians , Beautician } from 'Shopify/API'
 import { PageProps , Handlers } from 'Fresh/server.ts'
 
+import Icon_Help from 'Icon/help.tsx'
+
+
 
 import {
     AppointmentSelection , BeauticianSelection ,
@@ -16,52 +19,17 @@ interface Data {
 }
 
 
-// interface MetaObjectByHandle {
-
-//     data : {
-//         metaobjectByHandle : {
-//             displayName : string
-//         }
-//     }
-// }
-
-
 export const handler = {
 
     async GET ( _request , context ){
 
         const beauticians = await fetchBeauticians()
 
-        console.log('Beauty',beauticians)
-
-        // const query = `
-
-        //     query MetaObjectByHandle ( $handle : MetaobjectHandleInput! ){
-
-        //         metaobjectByHandle ( handle : $handle ){
-        //             displayName
-        //         }
-        //     }
-        // `
-
-        // const meta = await graph.query<MetaObjectByHandle>({
-        //     data : {
-
-        //         query ,
-
-        //         variables : {
-        //             handle : {
-        //                 handle : 'test' ,
-        //                 type : 'test'
-        //             }
-        //         }
-        //     }
-        // })
-
         const data = {
             beauticians
-            // test : ''//meta.body.data.metaobjectByHandle.displayName
         }
+
+        console.log('Data',data)
 
         return context
             .render(data)
@@ -73,12 +41,12 @@ export const handler = {
 
 function Route ( context : PageProps<Data> ){
 
-    const { data , url } = context;
-    const { beauticians } = data;
+    const { beauticians } = context.data;
 
     return <>
 
-        <div>
+
+        <div class = 'Schedule--Wrapper' >
 
             <BeauticianSelection beauticians = { beauticians } />
 
@@ -87,6 +55,12 @@ function Route ( context : PageProps<Data> ){
             <AppointmentSelection />
 
             <AppointmentDetails />
+
+            <div class = 'Schedule--Actions' >
+                <div class = 'Schedule--Help button shadow' title = 'Help' >
+                    <Icon_Help color = 'var(--Color-Tertiary)' />
+                </div>
+            </div>
 
         </div>
     </>

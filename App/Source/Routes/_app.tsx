@@ -14,7 +14,7 @@ function Route ( { Component } : AppProps ){
 
         </Head>
 
-        <div className = 'dark' >
+        <div id = 'Main' >
             <Component />
         </div>
 
