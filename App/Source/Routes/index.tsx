@@ -1,58 +1,70 @@
 
 export default Route
 
+import { fetchBeauticians , Beautician } from 'Shopify/API'
 import { PageProps , Handlers } from 'Fresh/server.ts'
-import { graph } from '../Graph.ts'
+
+
+import {
+    AppointmentSelection , BeauticianSelection ,
+    AppointmentDetails , WeekdaySelection
+} from 'Components'
 
 
 interface Data {
-    test : string
+    beauticians : Array<Beautician>
 }
 
 
-interface MetaObjectByHandle {
+// interface MetaObjectByHandle {
 
-    data : {
-        metaobjectByHandle : {
-            displayName : string
-        }
-    }
-}
+//     data : {
+//         metaobjectByHandle : {
+//             displayName : string
+//         }
+//     }
+// }
 
 
 export const handler = {
 
     async GET ( _request , context ){
 
-        const query = `
+        const beauticians = await fetchBeauticians()
 
-            query MetaObjectByHandle ( $handle : MetaobjectHandleInput! ){
+        console.log('Beauty',beauticians)
 
-                metaobjectByHandle ( handle : $handle ){
-                    displayName
-                }
-            }
-        `
+        // const query = `
 
-        const meta = await graph.query<MetaObjectByHandle>({
-            data : {
+        //     query MetaObjectByHandle ( $handle : MetaobjectHandleInput! ){
 
-                query ,
+        //         metaobjectByHandle ( handle : $handle ){
+        //             displayName
+        //         }
+        //     }
+        // `
 
-                variables : {
-                    handle : {
-                        handle : 'test' ,
-                        type : 'test'
-                    }
-                }
-            }
-        })
+        // const meta = await graph.query<MetaObjectByHandle>({
+        //     data : {
+
+        //         query ,
+
+        //         variables : {
+        //             handle : {
+        //                 handle : 'test' ,
+        //                 type : 'test'
+        //             }
+        //         }
+        //     }
+        // })
 
         const data = {
-            test : meta.body.data.metaobjectByHandle.displayName
+            beauticians
+            // test : ''//meta.body.data.metaobjectByHandle.displayName
         }
 
-        return context.render(data)
+        return context
+            .render(data)
     }
 
 } satisfies Handlers<Data>
@@ -62,17 +74,20 @@ export const handler = {
 function Route ( context : PageProps<Data> ){
 
     const { data , url } = context;
-
-    const testing = data.test;
+    const { beauticians } = data;
 
     return <>
 
-        <div>{ testing }</div>
+        <div>
 
-        <p>
+            <BeauticianSelection beauticians = { beauticians } />
 
-            This is an empty test page for the Laser app.
+            <WeekdaySelection />
 
-        </p>
+            <AppointmentSelection />
+
+            <AppointmentDetails />
+
+        </div>
     </>
 }

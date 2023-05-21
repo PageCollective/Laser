@@ -1,7 +1,7 @@
 
-import Environment from './Environment.ts'
+import Environment from 'Environment'
 
-import { authenticate } from './Shopify.ts'
+import { authenticate } from './Authenticate.ts'
 import { ApiVersion } from 'Shopify'
 
 

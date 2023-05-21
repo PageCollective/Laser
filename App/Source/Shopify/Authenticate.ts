@@ -7,7 +7,7 @@ import 'Shopify/Adapter'
 import { RestResources , restResources } from 'RestResources'
 import { ApiVersion, shopifyApi } from 'Shopify'
 
-import Environment from './Environment.ts'
+import Environment from 'Environment'
 
 
 function authenticate (){
@@ -27,7 +27,8 @@ function authenticate (){
 		scopes : [
             'write_metaobject_definitions' ,
             'write_metaobjects ' ,
-            'write_orders'
+            'write_orders' ,
+            'read_themes'
         ]
 	})
 

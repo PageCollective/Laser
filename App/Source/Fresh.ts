@@ -1,18 +1,17 @@
 
-import config from '../deno.json' assert { type : "json" }
-import * as $0 from "./Routes/_app.tsx";
-import * as $2 from "./Routes/index.tsx";
+import { Manifest } from 'Fresh/server.ts'
 
-const manifest = {
-  routes: {
-    "./routes/_app.tsx": $0,
-    "./routes/index.tsx": $2
-  },
-  islands : {
+import config from '../deno.json' assert { type : 'json' }
+import routes from './Routes/_.ts'
 
-  },
-  baseUrl: import.meta.url,
-  config,
-};
 
-export default manifest;
+export default {
+
+    islands : {} ,
+
+    baseUrl : import.meta.url ,
+    routes ,
+    config
+
+} satisfies Manifest
+

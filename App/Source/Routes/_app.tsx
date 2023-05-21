@@ -10,11 +10,13 @@ function Route ( { Component } : AppProps ){
 
         <Head>
 
-            <link rel = 'stylesheet' href = '/app.css' />
+            <link rel = 'stylesheet' href = '/App.css' />
 
         </Head>
 
-        <Component />
+        <div className = 'dark' >
+            <Component />
+        </div>
 
     </>
 }

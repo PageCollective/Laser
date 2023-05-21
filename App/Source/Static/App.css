@@ -1,0 +1,13 @@
+
+:root {
+    --Color-Secondary : #0c1714 ;
+    --Color-Tertiary : #19202f ;
+    --Color-Primary : #0c1714 ;
+    --Color-Accent : #4d6693 ;
+    --Color-Text : #deede8 ;
+}
+
+html {
+    background : var(--Color-Primary) ;
+    color : var(--Color-Text) ;
+}
