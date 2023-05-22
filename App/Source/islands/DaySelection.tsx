@@ -1,5 +1,5 @@
 
-export default DaySelection
+export default Component
 
 import { useContext } from 'preact/hooks'
 import { ScheduleContext } from '../Hooks/Schedule.tsx'
@@ -16,7 +16,7 @@ const Days = [
 ]
 
 
-function DaySelection (){
+function Component (){
 
     const { day : selected , setDay } = useContext(ScheduleContext)
 
@@ -68,7 +68,7 @@ function Day ( { selected , onClick , name } : DayProps ){
                 id = { id }
             />
 
-            { short }
+            <span>{ short }</span>
 
         </label>
     </>

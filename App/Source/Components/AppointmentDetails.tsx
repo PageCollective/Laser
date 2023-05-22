@@ -5,12 +5,21 @@ import { useContext } from 'preact/hooks'
 
 function AppointmentDetails (){
 
-    const { day } = useContext(ScheduleContext)
+    const { day , week } = useContext(ScheduleContext)
 
     return <>
-        <div class = 'Schedule--Details' />
 
-        <p style={ {color : 'black' }}> Selected Day : { day }</p>
+        <div class = 'Schedule--Details' >
+
+            <p>
+                Selected Day : { day }
+            </p>
+
+            <p>
+                Selected Week : { week }
+            </p>
+
+        </div>
     </>
 }
 

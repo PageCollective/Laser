@@ -1,6 +1,7 @@
 
 export { WeekdaySelection }
 
+import WeekSelection from '../islands/WeekSelection.tsx'
 import DaySelection from '../islands/DaySelection.tsx'
 
 
@@ -11,11 +12,7 @@ function WeekdaySelection (){
         <div class = 'Schedule--Weekdays'>
             <div class = 'Widget'>
 
-                <div class = 'Week' >
-
-
-
-                </div>
+                <WeekSelection />
 
                 <DaySelection />
 
