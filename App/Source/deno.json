@@ -1,0 +1,10 @@
+{
+    "compilerOptions" : {
+
+        "jsxImportSource": "preact" ,
+        "jsx": "react-jsx"
+
+    },
+
+    "importMap" : "../.config/Imports.json"
+}
