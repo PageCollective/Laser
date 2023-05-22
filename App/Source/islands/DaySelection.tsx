@@ -1,8 +1,8 @@
 
 export default DaySelection
 
-import { useState } from 'preact/hooks'
-import { Context } from '../Hooks/Context.tsx'
+import { useContext } from 'preact/hooks'
+import { ScheduleContext } from '../Hooks/Schedule.tsx'
 
 
 const Days = [
@@ -16,12 +16,9 @@ const Days = [
 ]
 
 
+function DaySelection (){
 
-
-
-function DaySelection ( { context } : { context : Context } ){
-
-    const { day : selected } = context;
+    const { day : selected , setDay } = useContext(ScheduleContext)
 
     console.log('Selected',selected)
 
@@ -29,7 +26,7 @@ function DaySelection ( { context } : { context : Context } ){
         .map(( day , index ) => <>
             <Day
                 selected = { selected == index }
-                onClick = { () => context.setDay(index) }
+                onClick = { () => setDay(index) }
                 name = { day }
             />
         </> )

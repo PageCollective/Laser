@@ -1,4 +1,3 @@
-import { useState } from 'preact/hooks'
 
 
 import {
@@ -12,55 +11,40 @@ interface Beautician {
     avatar ?: string
     name : string
 }
-import type { Context } from '../Hooks/Context.tsx'
 import Icon_Help from 'Icon/help.tsx'
+import { ScheduleProvider } from '../Hooks/Schedule.tsx'
 
 interface Props {
     beauticians : Array<Beautician>
 }
 
-function getDay (){
-
-    const day = new Date()
-        .getDay()
-
-    return ( day - 1 + 7 ) % 7
-}
-
-const today = getDay()
 
 
-export default function ( { beauticians } : Props ){
 
-
-    const [ day , setDay ] = useState(today)
-
-
-    const con = {
-        setDay : ( day : number ) => setDay(day) ,
-        day
-    } satisfies Context
+export default function  ( { beauticians } : Props ){
 
     return <>
 
-        <div class = 'Schedule--Wrapper' >
+        <ScheduleProvider>
 
-            <BeauticianSelection beauticians = { beauticians } />
+            <div class = 'Schedule--Wrapper' >
 
-            <WeekdaySelection context = { con } />
+                <BeauticianSelection beauticians = { beauticians } />
 
-            <AppointmentSelection />
+                <WeekdaySelection />
 
-            <AppointmentDetails />
+                <AppointmentSelection />
 
-            <div class = 'Schedule--Actions' >
-                <div class = 'Schedule--Help button shadow' title = 'Help' >
-                    <Icon_Help color = 'var(--Color-Tertiary)' />
+                <AppointmentDetails />
+
+                <div class = 'Schedule--Actions' >
+                    <div class = 'Schedule--Help button shadow' title = 'Help' >
+                        <Icon_Help color = 'var(--Color-Tertiary)' />
+                    </div>
                 </div>
+
             </div>
 
-            <p>{ day }</p>
-
-        </div>
+        </ScheduleProvider>
     </>
 }

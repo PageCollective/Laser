@@ -1,12 +1,11 @@
 
 export { WeekdaySelection }
 
-import { Context } from "../Hooks/Context.tsx";
 import DaySelection from '../islands/DaySelection.tsx'
 
 
 
-function WeekdaySelection ( { context } : { context : Context } ){
+function WeekdaySelection (){
 
     return <>
         <div class = 'Schedule--Weekdays'>
@@ -18,7 +17,7 @@ function WeekdaySelection ( { context } : { context : Context } ){
 
                 </div>
 
-                <DaySelection context = { context } />
+                <DaySelection />
 
             </div>
         </div>
