@@ -35,38 +35,7 @@ export const handler = {
 
 function Route ( context : PageProps<Data> ){
 
-    const { beauticians } = context.data;
-
     return <>
         <Wrap { ... context.data } />
     </>
-
-    // const [ day , setDay ] = useState(0)
-
-
-    // const con = {
-    //     setDay : ( day : number ) => console.log('day',day)
-    // } satisfies Context
-
-
-    // return <>
-
-    //     <div class = 'Schedule--Wrapper' >
-
-    //         <BeauticianSelection beauticians = { beauticians } />
-
-    //         <WeekdaySelection context = { con } />
-
-    //         <AppointmentSelection />
-
-    //         <AppointmentDetails />
-
-    //         <div class = 'Schedule--Actions' >
-    //             <div class = 'Schedule--Help button shadow' title = 'Help' >
-    //                 <Icon_Help color = 'var(--Color-Tertiary)' />
-    //             </div>
-    //         </div>
-
-    //     </div>
-    // </>
 }
