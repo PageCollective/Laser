@@ -23,6 +23,7 @@
         "Components" : "../Source/Components/_.ts" ,
         "Graph" : "../Source/Shopify/Graph.ts" ,
         "Shopify/API" : "../Source/Shopify/Queries/_.ts" ,
+        "Types" : "../Source/Shopify/Queries/Types.ts" ,
 
         "Icon/" : "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/"
     }

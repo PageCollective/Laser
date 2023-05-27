@@ -3,7 +3,7 @@ export { fetchBeauticians }
 
 import { Response , MetaObject } from './Response.ts'
 import { default as query } from './Query.ts'
-import { Beautician } from '../Types.ts'
+import { Beautician, Schedule } from '../Types.ts'
 import { graph } from 'Graph'
 
 
@@ -28,8 +28,27 @@ function parse ( meta : MetaObject ){
 
     const beautician = {} as Beautician
 
+    console.log('Fields',meta.fields)
+
     for ( const field of meta.fields )
         switch ( field.key ){
+        case 'unavailable' :
+
+            beautician.unavailable = JSON
+                .parse(field.value ?? '[]')
+                .map(( string : string ) => new Date(string))
+
+            continue
+        case 'schedule' : {
+
+            const entries = Object
+                .entries(JSON.parse(field.value ?? '{}')) as Array<[ string , [ string , string ] ]>
+
+            beautician.schedule = Object.fromEntries(entries
+                .map(([ day , range ]) => [ day , { from : range[0] , to : range[1] } ])) as Schedule
+
+            continue
+        }
         case 'avatar' : beautician.avatar = field.reference?.image?.url ; continue
         case 'name' : beautician.name = field.value! ; continue
         }
