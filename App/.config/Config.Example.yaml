@@ -2,24 +2,47 @@
 Shopify:
 
     #
-    #   The 'API secret key' value found in the
-    #   development app 'API credentials' section
-    #
-
-    Secret : XYZ
-
-    #
-    #   The 'Admin API access token' found in the
-    #   development app 'API credentials' section
-    #
-
-    Token : shpat_XYZ
-
-    #
     #   The hostname of the store where the app will run
     #
 
-    Host : X.MyShopify.Com
+    Host : X.MyShopify.com
+
+
+    API:
+
+        #
+        #   The version string for Shopify's API.
+        #
+
+        Version : '2023-04'
+
+
+        Storefront:
+
+            #
+            #   The 'Storefront API access token' found in
+            #   the development app 'API credentials' section
+            #
+
+            Token : 'XYZ'
+
+
+        Admin:
+
+            #
+            #   The 'API secret key' value found in the
+            #   development app 'API credentials' section
+            #
+
+            Secret : XYZ
+
+
+            #
+            #   The 'Admin API access token' found in the
+            #   development app 'API credentials' section
+            #
+
+            Token : shpat_XYZ
 
 
 App:

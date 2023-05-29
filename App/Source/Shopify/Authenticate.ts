@@ -14,8 +14,8 @@ function authenticate (){
 
 	const shopify = shopifyApi<RestResources>({
 
-		adminApiAccessToken : Environment.Shopify.Token ,
-        apiSecretKey : Environment.Shopify.Secret ,
+		adminApiAccessToken : Environment.Shopify.API.Admin.Token ,
+        apiSecretKey : Environment.Shopify.API.Admin.Secret ,
         hostName : Environment.Shopify.Host ,
 
         isCustomStoreApp : true ,

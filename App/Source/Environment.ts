@@ -25,9 +25,23 @@ if( ! config )
 const Config = z.object({
 
     Shopify : z.object({
-        Secret : z.string() ,
-        Token : z.string() ,
-        Host : z.string()
+
+        Host : z.string() ,
+
+        API : z.object({
+
+            Version : z.string() ,
+
+            Storefront : z.object({
+                Token : z.string()
+            }),
+
+            Admin : z.object({
+
+                Secret : z.string() ,
+                Token : z.string()
+            })
+        })
     }),
 
     App : z.object({

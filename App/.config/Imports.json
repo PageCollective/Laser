@@ -25,6 +25,13 @@
         "Shopify/API" : "../Source/Shopify/Queries/_.ts" ,
         "Types" : "../Source/Shopify/Queries/Types.ts" ,
 
-        "Icon/" : "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/"
+        "Icon/" : "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/" ,
+
+        "~" : "../Source/" ,
+
+        "twind/" : "https://esm.sh/v98/twind@0.16.17/" ,
+        "twind" : "https://esm.sh/v98/twind@0.16.17/" ,
+        "Wind/" : "https://esm.sh/v98/twind@0.16.17/" ,
+        "Wind" : "https://esm.sh/v98/twind@0.16.17"
     }
 }
