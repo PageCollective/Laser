@@ -1,9 +1,9 @@
 
 export { fetchBeauticians }
 
-import { Response , MetaObject } from './Response.ts'
+import { MetaObject , Response } from './Response.ts'
+import { Beautician , Schedule } from '../Types.ts'
 import { default as query } from './Query.ts'
-import { Beautician, Schedule } from '../Types.ts'
 import { graph } from 'Graph'
 
 
@@ -29,6 +29,8 @@ function parse ( meta : MetaObject ){
     const beautician = {} as Beautician
 
     console.log('Fields',meta.fields)
+
+    beautician.handle = meta.handle;
 
     for ( const field of meta.fields )
         switch ( field.key ){

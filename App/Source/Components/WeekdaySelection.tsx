@@ -1,8 +1,8 @@
 
 export { WeekdaySelection }
 
-import WeekSelection from '../islands/WeekSelection.tsx'
-import DaySelection from '../islands/DaySelection.tsx'
+import WeekSelection from './WeekSelection.tsx'
+import DaySelection from './DaySelection.tsx'
 
 
 

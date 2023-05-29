@@ -38,6 +38,7 @@ interface Beautician {
     schedule : Schedule
     avatar ?: string
     name : string
+    handle : string
 }
 
 
@@ -66,4 +67,18 @@ enum Errors {
     MetaObject_Definition_Missing ,
     MetaObject_Field_Missing ,
     MetaObject_Invalid_Value
+}
+
+
+export type { AppointmentPreview }
+
+
+interface AppointmentPreview {
+
+    handle : string
+    program: string;
+    duration: string;
+    beautician: string
+    customer: string
+    time: string
 }

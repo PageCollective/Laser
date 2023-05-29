@@ -1,8 +1,8 @@
 
 export { fetchAppointmentIds }
 
+import { Appointment , Errors } from '../Types.ts'
 import { default as query } from './Query.ts'
-import { Appointment, Errors } from '../Types.ts'
 import { Response } from './Response.ts'
 import { graph } from 'Graph'
 import { z } from 'Zod'

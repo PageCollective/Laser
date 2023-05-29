@@ -3,9 +3,9 @@ export default Route
 
 import { fetchBeauticians , fetchAppointmentIds , fetchAppointments , Beautician } from 'Shopify/API'
 import { PageProps , Handlers, HandlerContext } from 'Fresh/server.ts'
-import { Appointment } from 'Types'
+import { AppointmentPreview } from 'Types'
 
-import  Wrap from '../islands/Wrap.tsx'
+import Wrap from '../islands/Wrap.tsx'
 
 
 interface Failure {
@@ -14,7 +14,7 @@ interface Failure {
 
 
 interface Data {
-    appointments : Array<Appointment>
+    appointments : Array<AppointmentPreview>
     beauticians : Array<Beautician>
     errors : Array<Failure>
 }
@@ -24,9 +24,9 @@ async function GET ( request : Request , context : HandlerContext<Data> ){
 
     const data = {
         appointments : [] ,
-        beauticians : [] ,
-        //await fetchBeauticians()
-        errors : []
+        beauticians : await fetchBeauticians() ,
+        errors : [] ,
+
     } as Data
 
     const date = getParam('Date'); //! Validate format
@@ -40,16 +40,14 @@ async function GET ( request : Request , context : HandlerContext<Data> ){
 
         console.log('Ids',appointmentIds)
 
-        if( appointmentIds.success ){
+        if( appointmentIds.success && appointmentIds.ids.length ){
 
             const appointments = await
-                fetchAppointments([ ... appointmentIds.ids ])
+                fetchAppointments(appointmentIds.ids)
 
-            type Success = { success : true , data : readonly [] }
-
-            data.appointments = appointments
-                .filter(( result ) : result is Success => result.success )
-                .map(( result ) => result.data )
+            for ( const appointment of appointments )
+                if( appointment.success )
+                    data.appointments.push(appointment.data)
         }
     }
 

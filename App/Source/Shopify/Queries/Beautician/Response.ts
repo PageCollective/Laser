@@ -13,7 +13,10 @@ interface Response {
 
 
 interface MetaObject {
+
     fields : Array<Field>
+
+    handle : string
 }
 
 

@@ -6,6 +6,41 @@ const query = ( index : number ) => [
     `$_${ index } : ID!` ,
     `_${ index } : metaobject ( id : $_${ index } ){
 
+
+        handle
+
+        beautician : field ( key : "beautician" ){
+
+            reference {
+
+              	... on Metaobject {
+                    handle
+                }
+            }
+        }
+
+
+        customer : field ( key : "customer" ){
+
+            reference {
+
+              	... on Metaobject {
+
+                    name : field ( key : "name" ){
+                      	value
+                    }
+                }
+            }
+        }
+
+        program : field ( key : "program" ){
+            value
+        }
+
+        duration : field ( key : "duration" ){
+            value
+        }
+
         time : field ( key : "time" ){
             value
         }

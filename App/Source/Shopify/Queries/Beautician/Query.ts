@@ -6,6 +6,8 @@ export default `
         metaobjects ( type : "beautician" , first : 10 ){
             nodes {
 
+                handle
+
                 fields {
 
                     reference {
