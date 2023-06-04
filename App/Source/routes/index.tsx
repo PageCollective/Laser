@@ -5,8 +5,7 @@ import { Handlers , PageProps } from 'Fresh/server.ts'
 import { fetchProducts } from '../Shopify/Storefront/Queries/Products/_.ts'
 import { ProductTile } from 'UI'
 import { Product } from 'Storefront/Types'
-import { Footer } from '../Components/Page/Footer.tsx'
-import { Head } from '../Components/Head.tsx'
+import { Base } from '../Components/Page/Base.tsx'
 
 
 interface Data {
@@ -31,6 +30,7 @@ export const handler = {
 
 function Page ( context : PageProps<Data> ){
 
+
     const { products } = context.data
 
     const tiles = products
@@ -42,53 +42,31 @@ function Page ( context : PageProps<Data> ){
             />
         ))
 
+
+    const meta = {
+        description : `Shop of the Laser Hair Removal salon` ,
+        domain : context.url.host ,
+        title : `Laser Hair Removal` ,
+        image : context.url.origin + '/Preview.png' ,
+        link : context.url.href
+    }
+
+
     return <>
 
-        <link rel = 'stylesheet' href = '/Index.css' />
+        <Base meta = { meta } >
 
-        <style> { `
+            <h2
+                class = 'sr-only'
+                id = 'information-heading'
+            > Product List </h2>
 
-            body {
-                background : #f9f9f9 ;
-            }
+            <div class = { `
+                grid gap-x-8 gap-y-10
+                grid-cols-2 lg:grid-cols-3
+            ` } > { tiles } </div>
 
-        ` } </style>
-
-
-        <div class = { `
-            flex flex-col justify-center
-            lg:max-w-4xl max-w-xs
-            mx-auto
-        ` } >
-
-            <Head
-                description = { `Shop of the Laser Hair Removal salon` }
-                domain = { context.url.host }
-                title = { `Laser Hair Removal` }
-                image = { context.url.origin + '/Preview.png' }
-                link = { context.url.href }
-            />
-
-            <div
-                aria-labelledby = 'information-heading'
-                class = 'w-11/12 max-w-5xl mx-auto mt-28'
-            >
-
-                <h2
-                    class = 'sr-only'
-                    id = 'information-heading'
-                > Product List </h2>
-
-                <div class = { `
-                    grid gap-x-8 gap-y-10
-                    grid-cols-2 lg:grid-cols-3
-                ` } > { tiles } </div>
-
-            </div>
-
-            <Footer />
-
-        </div>
+        </Base>
 
     </>
 }
