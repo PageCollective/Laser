@@ -44,6 +44,8 @@ function Page ( context : PageProps<Data> ){
 
     return <>
 
+        <link rel = 'stylesheet' href = '/Index.css' />
+
         <style> { `
 
             body {
@@ -78,7 +80,7 @@ function Page ( context : PageProps<Data> ){
                 > Product List </h2>
 
                 <div class = { `
-                    grid gap-8
+                    grid gap-x-8 gap-y-10
                     grid-cols-2 lg:grid-cols-3
                 ` } > { tiles } </div>
 

@@ -6,7 +6,7 @@ import { Product , Image } from 'Storefront/Types'
 import { formatCurrency } from '../Misc/Format/Currency.ts'
 
 import MissingIcon from 'Icon/file-broken.tsx'
-import AddIcon from 'Icon/shopping-cart-plus.tsx'
+import OpenIcon from 'Icon/external-link.tsx'
 
 
 interface Props {
@@ -43,12 +43,13 @@ function Component ( { product } : Props ){
             </div>
 
             <div class = { `
-                mx-auto w-5/6 text-center
+                mx-auto w-5/6 text-center gap-2
                 flex flex-col justify-center
                 mt-3 text-lg text-gray-800
             ` } >
 
                 <h3 class = { `
+                    Underline
                     font-medium relative
                 ` }> { title } </h3>
 
@@ -118,7 +119,7 @@ function Overlay (){
             absolute
         ` } >
 
-            <AddIcon size = { 30 } />
+            <OpenIcon size = { 30 } />
 
         </div>
     )
