@@ -1,9 +1,17 @@
 
 export default `
 
-    query ( $after : String , $thumbnail : ImageTransformInput ){
+    query (
+        $thumbnail : ImageTransformInput ,
+        $after : String ,
+        $query : String
+    ){
 
-        products ( after : $after , first : 10 ){
+        products (
+            query : $query ,
+            after : $after ,
+            first : 10
+        ){
 
             pageInfo {
                 hasNextPage

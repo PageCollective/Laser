@@ -19,6 +19,8 @@ async function fetchProducts ( props : Props ){
 
         cursor : cursor ,
 
+        query : `available_for_sale:true` ,
+
         thumbnail : {
             preferredContentType : 'WEBP' ,
             maxHeight : 400 ,

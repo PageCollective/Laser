@@ -1,6 +1,8 @@
 
 export type { Response }
 
+import { Product } from 'Storefront/Types'
+
 
 interface Response {
 
@@ -11,30 +13,12 @@ interface Response {
             endCursor : null | string
         }
 
-        nodes : {
-
-            handle : string
-            title : string
-            id : string
-
-            featuredImage : null | {
-
-                altText : null | string
-                url : string
-            }
-
-            priceRange : {
-
-                minVariantPrice : {
-                    currencyCode : string
-                    amount : string
-                }
-
-                maxVariantPrice : {
-                    currencyCode : string
-                    amount : string
-                }
-            }
-        }
+        nodes : Array<Product>
     }
 }
+
+
+
+
+
+
