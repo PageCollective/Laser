@@ -1,76 +1,92 @@
 
-export default Route
+export default Page
 
-import { fetchBeauticians , fetchAppointmentIds , fetchAppointments , Beautician } from 'Shopify/API'
-import { PageProps , Handlers, HandlerContext } from 'Fresh/server.ts'
-import { AppointmentPreview } from 'Types'
-
-import Wrap from '../islands/Wrap.tsx'
-
-
-interface Failure {
-
-}
+import { Handlers , PageProps } from 'Fresh/server.ts'
+import { fetchProducts } from '../Shopify/Storefront/Queries/Products/_.ts'
+import { ProductTile } from 'UI'
+import { Product } from 'Storefront/Types'
+import { Footer } from '../Components/Page/Footer.tsx'
+import { Head } from '../Components/Head.tsx'
 
 
 interface Data {
-    appointments : Array<AppointmentPreview>
-    beauticians : Array<Beautician>
-    errors : Array<Failure>
+    products : Array<Product>
 }
 
 
-async function GET ( request : Request , context : HandlerContext<Data> ){
+export const handler = {
 
-    const data = {
-        appointments : [] ,
-        beauticians : await fetchBeauticians() ,
-        errors : [] ,
+    async GET ( _request , context ){
 
-    } as Data
+        const productResponse = await fetchProducts({});
+        console.log('Products',productResponse)
 
-    const date = getParam('Date'); //! Validate format
-
-    if( date ){
-
-        console.log('Date',date)
-
-        const appointmentIds = await
-            fetchAppointmentIds({ date })
-
-        console.log('Ids',appointmentIds)
-
-        if( appointmentIds.success && appointmentIds.ids.length ){
-
-            const appointments = await
-                fetchAppointments(appointmentIds.ids)
-
-            for ( const appointment of appointments )
-                if( appointment.success )
-                    data.appointments.push(appointment.data)
-        }
+        return context.render({
+            products : productResponse.data?.products.nodes ?? []
+        })
     }
 
-    console.log('Data',data)
-
-    return context
-        .render(data)
-
-    function getParam ( name : string ){
-        return new URL(request.url)
-            .searchParams.get(name)
-    }
-}
+} as Handlers<Data>
 
 
-export const handler = { GET } satisfies Handlers<Data>
+function Page ( context : PageProps<Data> ){
 
+    const { products } = context.data
 
+    const tiles = products
+        .map(( product ) => (
 
-
-function Route ( context : PageProps<Data> ){
+            <ProductTile
+                product = { product }
+                key = { product.id }
+            />
+        ))
 
     return <>
-        <Wrap { ... context.data } />
+
+        <style> { `
+
+            body {
+                background : #f9f9f9 ;
+            }
+
+        ` } </style>
+
+
+        <div class = { `
+            flex flex-col justify-center
+            lg:max-w-4xl max-w-xs
+            mx-auto
+        ` } >
+
+            <Head
+                description = { `Shop of the Laser Hair Removal salon` }
+                domain = { context.url.host }
+                title = { `Laser Hair Removal` }
+                image = { context.url.origin + '/Preview.png' }
+                link = { context.url.href }
+            />
+
+            <div
+                aria-labelledby = 'information-heading'
+                class = 'w-11/12 max-w-5xl mx-auto mt-28'
+            >
+
+                <h2
+                    class = 'sr-only'
+                    id = 'information-heading'
+                > Product List </h2>
+
+                <div class = { `
+                    grid gap-8
+                    grid-cols-2 lg:grid-cols-3
+                ` } > { tiles } </div>
+
+            </div>
+
+            <Footer />
+
+        </div>
+
     </>
 }

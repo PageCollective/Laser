@@ -2,3 +2,4 @@
 Config.yaml
 .env
 .github
+tailwind.config.js

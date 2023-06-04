@@ -1,11 +1,17 @@
 
-export type { Product , Image }
+export type { Product , Image , Price }
 
 
 interface Image {
 
     altText : null | string
     url : string
+}
+
+
+interface Price {
+    currencyCode : string
+    amount : string
 }
 
 
@@ -19,14 +25,7 @@ interface Product {
 
     priceRange : {
 
-        minVariantPrice : {
-            currencyCode : string
-            amount : string
-        }
-
-        maxVariantPrice : {
-            currencyCode : string
-            amount : string
-        }
+        minVariantPrice : Price
+        maxVariantPrice : Price
     }
 }

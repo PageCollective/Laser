@@ -7,7 +7,7 @@ import Icon_Help from 'Icon/help.tsx'
 import {
     AppointmentSelection , BeauticianSelection ,
     AppointmentDetails , WeekdaySelection
-} from 'Components'
+} from 'UI'
 
 
 interface Props {

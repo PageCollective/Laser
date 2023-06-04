@@ -20,7 +20,7 @@
         "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.2.3",
 
         "Environment" : "../Source/Environment.ts" ,
-        "Components" : "../Source/Components/_.ts" ,
+        "UI" : "../Source/Components/_.ts" ,
         "Graph" : "../Source/Shopify/Graph.ts" ,
         "Shopify/API" : "../Source/Shopify/Queries/_.ts" ,
         "Types" : "../Source/Shopify/Queries/Types.ts" ,
@@ -32,6 +32,8 @@
         "twind/" : "https://esm.sh/v98/twind@0.16.17/" ,
         "twind" : "https://esm.sh/v98/twind@0.16.17/" ,
         "Wind/" : "https://esm.sh/v98/twind@0.16.17/" ,
-        "Wind" : "https://esm.sh/v98/twind@0.16.17"
+        "Wind" : "https://esm.sh/v98/twind@0.16.17" ,
+
+        "Storefront/Types" : "../Source/Shopify/Storefront/Types.ts"
     }
 }

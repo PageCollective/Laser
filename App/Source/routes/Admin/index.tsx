@@ -4,6 +4,7 @@ export default Route
 import { fetchBeauticians , fetchAppointmentIds , fetchAppointments , Beautician } from 'Shopify/API'
 import { PageProps , Handlers, HandlerContext } from 'Fresh/server.ts'
 import { AppointmentPreview } from 'Types'
+import { Head } from 'Fresh/runtime.ts'
 
 import Wrap from '../../islands/Wrap.tsx'
 
@@ -71,6 +72,15 @@ export const handler = { GET } satisfies Handlers<Data>
 function Route ( context : PageProps<Data> ){
 
     return <>
-        <Wrap { ... context.data } />
+
+        <Head>
+
+            <link rel = 'stylesheet' href = '/App.css' />
+
+        </Head>
+
+        <div id = 'Main' >
+            <Wrap { ... context.data } />
+        </div>
     </>
 }
