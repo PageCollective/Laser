@@ -4,6 +4,7 @@ export default Component
 import { useEffect , useRef } from 'preact/hooks'
 import { useSettings } from '../Hooks/Settings.tsx'
 import { IS_BROWSER } from 'Fresh/runtime.ts'
+import { Toggle } from 'UI'
 
 
 function Component (){
@@ -45,12 +46,23 @@ function Component (){
                 hidden modal:flex
                 flex-col min-w-[20rem]
                 bg-white rounded-xl border-2 border-gray-200
+                p-8
             ` }
         >
 
-            <div>
+            <div style = 'grid-template-columns : 1fr auto' class = { `
+                grid
+                items-center
+                font-mono
+                text-lg
+            ` }>
 
-                Dark Mode
+                <p> Dark Mode </p>
+
+                <Toggle
+                    onToggle = { () => {} }
+                    active = { false }
+                />
 
             </div>
 

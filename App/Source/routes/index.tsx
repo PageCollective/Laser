@@ -18,7 +18,6 @@ export const handler = {
     async GET ( _request , context ){
 
         const productResponse = await fetchProducts({});
-        console.log('Products',productResponse)
 
         return context.render({
             products : productResponse.data?.products.nodes ?? []

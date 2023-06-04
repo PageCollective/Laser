@@ -1,7 +1,10 @@
 
 export { Component as Footer }
 
-import { ShopifyBadge , GitHubBadge , FreshBadge } from 'UI'
+import {
+    ShopifyBadge , GitHubBadge ,
+    TablerBadge , FreshBadge
+} from 'UI'
 
 
 function Component (){
@@ -15,13 +18,15 @@ function Component (){
         ` } >
 
             <span class = { `
-                flex items-center gap-4
-                flex-col md:flex-row
+                flex flex-col md:flex-row flex-wrap
+                items-center justify-center
+                gap-4
             ` } >
 
                 <FreshBadge />
                 <ShopifyBadge />
                 <GitHubBadge />
+                <TablerBadge />
 
             </span>
 
