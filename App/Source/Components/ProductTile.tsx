@@ -16,50 +16,58 @@ interface Props {
 
 function Component ( { product } : Props ){
 
-    const { priceRange , handle , title , id } = product
+    const { priceRange , handle , title } = product
 
     const price = priceRange.minVariantPrice
 
-    console.log(priceRange)
+    const link = `/x/${ handle }`
 
     return (
 
-        <a
-            class = 'group'
-            href = { `/x/${ handle }` }
-            key = { id }
-        >
+        <div class = 'group select-none' >
 
-            <div style = {{ aspectRatio : '1' }} class = { `
-                w-full bg-white rounded-xl overflow-hidden
-                border-2 border-gray-200 transition-all
-                duration-500 relative
-            ` } >
+            <a
+                style = {{ aspectRatio : '1' }}
+
+                href = { link }
+
+                class = { `
+                    w-full bg-white rounded-xl overflow-hidden
+                    border-2 border-gray-200 transition-all
+                    duration-500 relative block
+                ` }
+            >
 
                 <Thumbnail image = { product.featuredImage } />
 
                 <Overlay />
 
-            </div>
+            </a>
 
             <div class = { `
-                mx-auto w-5/6 text-center gap-2
+                mx-auto w-5/6 text-center gap-1
                 flex flex-col justify-center
-                mt-3 text-lg text-gray-800
+                mt-3 text-gray-800
+                text-md lg:text-lg
             ` } >
 
-                <h3 class = { `
-                    Underline
-                    font-medium relative
-                ` }> { title } </h3>
+                <b class = 'font-bold select-text' >
+                    { formatCurrency(price) }
+                </b>
 
-                <b class = { `
-                    font-bold
-                ` } > { formatCurrency(price) } </b>
+                <a href = { link } >
+
+                    <h3 class = { `
+                        Underline
+                        font-medium relative
+                        select-text
+                    ` }> { title } </h3>
+
+                </a>
 
             </div>
 
-        </a>
+        </div>
     )
 }
 

@@ -20,6 +20,7 @@ function Component ( { children , link } : Props ){
                 text-lg bg-white rounded-lg border
                 border-gray-300 px-5 py-1 h-11
                 whitespace-nowrap
+                select-none
             ` }
 
             href = { link }
