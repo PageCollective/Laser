@@ -4,9 +4,9 @@ export default Component
 import IconRight from 'Icon/arrow-big-right-filled.tsx'
 import IconLeft from 'Icon/arrow-big-left-filled.tsx'
 
-import { ScheduleContext } from '../Hooks/Schedule.tsx'
+import { ScheduleContext } from '../../Hooks/Schedule.tsx'
+import { weekOfYear } from 'https://deno.land/std@0.188.0/datetime/mod.ts'
 import { useContext } from 'preact/hooks'
-import { weekOfYear , format } from 'https://deno.land/std@0.188.0/datetime/mod.ts'
 
 
 const { min , max } = Math;

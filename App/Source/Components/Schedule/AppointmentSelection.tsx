@@ -2,7 +2,7 @@
 export { AppointmentSelection }
 
 import { AppointmentPreview } from 'Types'
-import { ScheduleContext } from '../Hooks/Schedule.tsx'
+import { ScheduleContext } from '../../Hooks/Schedule.tsx'
 import { useContext } from 'preact/hooks'
 
 

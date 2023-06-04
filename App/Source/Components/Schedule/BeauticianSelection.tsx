@@ -1,7 +1,7 @@
 
 export { BeauticianSelection }
 
-import { ScheduleContext } from '../Hooks/Schedule.tsx'
+import { ScheduleContext } from '../../Hooks/Schedule.tsx'
 import { useContext } from 'preact/hooks'
 import { Beautician } from 'Shopify/API'
 

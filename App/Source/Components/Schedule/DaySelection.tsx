@@ -2,7 +2,7 @@
 export default Component
 
 import { useContext } from 'preact/hooks'
-import { ScheduleContext } from '../Hooks/Schedule.tsx'
+import { ScheduleContext } from '../../Hooks/Schedule.tsx'
 
 
 const Days = [
