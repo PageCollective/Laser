@@ -4,3 +4,13 @@
     text-underline-offset : 0.3rem ;
     text-decoration-thickness : 0.15rem ;
 }
+
+
+.Footer_Badges .Badge:nth-child( 2n + 1 ) {
+    justify-self : end ;
+}
+
+.Footer_Badges .Badge:nth-child( 2n + 0 ) {
+    justify-self : start ;
+}
+

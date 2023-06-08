@@ -1,68 +1,128 @@
 
 export default Component
 
-import { useEffect , useRef } from 'preact/hooks'
-import { useSettings } from '../Hooks/Settings.tsx'
-import { IS_BROWSER } from 'Fresh/runtime.ts'
+import { useKeys } from '../Hooks/Keys.tsx'
+import { signal } from '@preact/signals'
 import { Toggle } from 'UI'
+
+import Cookie from 'Cookie'
+
+
+export const detailed = signal(true)
 
 
 function Component (){
 
-    const dialogRef = useRef<HTMLDialogElement>(null)
+    const [ isOpen ] = useKeys()
 
+    const isAvailable = navigator.cookieEnabled
 
-    if( IS_BROWSER ){
+    const save = () => {
 
-        const [ isOpen ] = useSettings()
+        const settings = {
+            minimalist : ! detailed.value
+        }
 
-
-        useEffect(() => {
-
-            const { current } = dialogRef
-
-            if( ! current )
-                return
-
-            if( isOpen === current.open )
-                return
-
-            if( isOpen )
-                current.showModal()
-            else
-                current.close()
-        })
+        Cookie.set('Settings',JSON.stringify(settings))
     }
 
 
     return (
 
         <dialog
-            aria-modal = 'true'
-            ref = { dialogRef }
+
             id = 'SettingsDialog'
 
+            style = {{ display : ( isOpen ) ? 'flex' : 'none' }}
+
             class = { `
-                hidden modal:flex
-                flex-col min-w-[20rem]
-                bg-white rounded-xl border-2 border-gray-200
-                p-8
+                fixed w-full h-full
+                flex items-center justify-center
+                z-50 bg-[#DDDDDD66]
             ` }
         >
 
-            <div style = 'grid-template-columns : 1fr auto' class = { `
-                grid
-                items-center
-                font-mono
-                text-lg
-            ` }>
+            <div
 
-                <p> Dark Mode </p>
+                style = 'grid-template-columns : 1fr auto'
 
-                <Toggle
-                    onToggle = { () => {} }
-                    active = { false }
-                />
+                class = { `
+                    max-w-4xl
+                    w-fit
+                    h-fit
+                    min-w-[20rem]
+                    bg-white rounded-xl border-2 border-gray-200
+                    p-12
+
+                    flex flex-col
+                    gap-10
+                    font-mono
+
+                ` }
+            >
+
+                { ( ! isAvailable ) && <>
+
+                    <div class = { `
+                        border-2 rounded-lg border-red-500
+                        bg-red-50
+                        p-4
+                    ` } >
+
+                        <h3 class = 'text-xl font-bold text-red-500' >
+                            Cookies Disabled
+                        </h3>
+
+                        <p class = 'text-base text-red-800' >
+                            The following settings cannot be saved as <br/>
+                            you have disabled cookies for this site.
+                        </p>
+
+                    </div>
+
+                </> }
+
+
+                <div
+
+                    style = 'grid-template-columns : 1fr auto'
+
+                    class = { `
+                        grid gap-2
+                        items-center
+                        text-lg
+                        p-4
+                    ` }
+                >
+
+                    <div>
+
+                        <h3 class = 'text-xl font-bold' >
+                            Minimalist
+                        </h3>
+
+                        <p class = 'text-base' >
+                            Only display parts of the shop <br/>
+                            that are essential for shopping.
+                        </p>
+
+                    </div>
+
+
+                    <Toggle
+
+                        onToggle = {
+
+                            ( value ) => {
+                                detailed.value = value;
+                                save()
+                            }
+                        }
+
+                        active = { detailed.value }
+                    />
+
+                </div>
 
             </div>
 

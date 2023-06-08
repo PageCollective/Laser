@@ -9,7 +9,7 @@
         "Yaml" : "https://deno.land/std@0.188.0/yaml/mod.ts" ,
         "Path" : "https://deno.land/std@0.188.0/path/mod.ts" ,
 
-        "Zod" : "https://deno.land/x/zod/mod.ts" ,
+        "Zod" : "https://deno.land/x/zod@v3.21.4/mod.ts" ,
 
         "Fresh/": "https://deno.land/x/fresh@1.1.5/",
 
@@ -34,6 +34,10 @@
         "Wind/" : "https://esm.sh/v98/twind@0.16.17/" ,
         "Wind" : "https://esm.sh/v98/twind@0.16.17" ,
 
-        "Storefront/Types" : "../Source/Shopify/Storefront/Types.ts"
+        "Storefront/Types" : "../Source/Shopify/Storefront/Types.ts" ,
+
+        "Cookie" : "https://esm.sh/js-cookie@3.0.5" ,
+
+        "Data" : "../Source/Data/_.ts"
     }
 }

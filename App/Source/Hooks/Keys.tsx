@@ -1,5 +1,5 @@
 
-export { Hook as useSettings }
+export { Hook as useKeys }
 
 import { useEffect , useState } from 'preact/hooks'
 import { IS_BROWSER } from 'Fresh/runtime.ts'

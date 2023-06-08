@@ -1,6 +1,7 @@
 
 export default Page
 
+import { fromCookies , type Settings } from 'Data'
 import { Handlers , PageProps } from 'Fresh/server.ts'
 import { fetchProducts } from '../Shopify/Storefront/Queries/Products/_.ts'
 import { ProductTile } from 'UI'
@@ -10,17 +11,25 @@ import { Base } from '../Components/Page/Base.tsx'
 
 interface Data {
     products : Array<Product>
+    settings : Settings
 }
 
 
 export const handler = {
 
-    async GET ( _request , context ){
+    async GET ( request , context ){
+
+        const header = request.headers.get('cookie') ?? ''
+
+        const settings = fromCookies(header)
+
+        console.debug('Cookie Settings',settings)
 
         const productResponse = await fetchProducts({});
 
         return context.render({
-            products : productResponse.data?.products.nodes ?? []
+            products : productResponse.data?.products.nodes ?? [] ,
+            settings : settings
         })
     }
 
@@ -28,7 +37,6 @@ export const handler = {
 
 
 function Page ( context : PageProps<Data> ){
-
 
     const { products } = context.data
 
@@ -53,7 +61,7 @@ function Page ( context : PageProps<Data> ){
 
     return <>
 
-        <Base meta = { meta } >
+        <Base meta = { meta } settings = { context.data.settings } >
 
             <h2
                 class = 'sr-only'
