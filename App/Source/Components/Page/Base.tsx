@@ -2,25 +2,27 @@
 export type { Props as BaseProps }
 export { Component as Base }
 
-import { Settings as Sett } from '../../routes/index.tsx'
 import { HeadProps , Head } from '../Head.tsx'
+import { Settings as Sett } from 'Data'
 import { ComponentChild } from 'preact'
-import Footer from '../../islands/Footer.tsx'
+import { Header } from './Header.tsx'
 
-import Settings from '../../islands/Settings.tsx'
 import SettingsData from '../../islands/SettingsData.tsx'
+import Settings from '../../islands/Settings.tsx'
+import Footer from '../../islands/Footer.tsx'
 
 
 interface Props {
     children : ComponentChild
     settings : Sett
     meta : HeadProps
+    url : URL
 }
 
 
 function Component ( props : Props ){
 
-    const { children , meta } = props
+    const { children , meta , url } = props
 
 
     return <>
@@ -40,6 +42,8 @@ function Component ( props : Props ){
 
         <Settings />
 
+
+        <Header url = { url } />
 
         <div class = { `
             flex flex-col justify-center
