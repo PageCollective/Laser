@@ -4,6 +4,9 @@ export { AdminSession }
 import { deleteCookie , setCookie } from 'Cookie'
 
 
+const OneHour = 60 * 60
+
+
 let session : null | string = null
 
 
@@ -25,12 +28,13 @@ const AdminSession = {
         session = crypto.randomUUID()
 
         setCookie(headers,{
-            name : 'Session_Admin' ,
-            value : session ,
-            path : '/Admin/',
+            sameSite : 'Strict' ,
             httpOnly : true ,
             secure : true ,
-            maxAge : 60 * 60
+            maxAge : OneHour ,
+            value : session ,
+            name : 'Session_Admin' ,
+            path : '/Admin/'
         })
     },
 

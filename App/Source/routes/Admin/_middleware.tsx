@@ -1,27 +1,19 @@
 
 export { handler }
 
-import { MiddlewareHandlerContext , MiddlewareHandler } from 'Fresh/server.ts'
-import { deleteCookie , getCookies , CookieMap } from 'Deno/http/mod.ts'
+import { determineAuthorization } from '../../Middleware/Admin/DetermineAuthorization.ts'
 import { AdminSession } from '../../Admin/Auth.ts'
-
-
-interface State {
-    isAuthenticated : boolean
-}
-
-
-type Middleware = MiddlewareHandler<State>[]
-type Context = MiddlewareHandlerContext<State>
+import { deleteCookie } from 'Deno/http/mod.ts'
+import { Context } from '../../Middleware/Admin/_.ts'
+import { delay } from 'Async'
 
 
 const handler = [
 
     throttle ,
-    checkAuthentication ,
+    determineAuthorization ,
     redirect
-
-] satisfies Middleware
+]
 
 
 async function timed (
@@ -41,12 +33,6 @@ async function timed (
 }
 
 
-async function wait ( millis : number ){
-    await new Promise(( resolve ) =>
-        setTimeout(resolve,millis))
-}
-
-
 async function throttle (
     request : Request ,
     context : Context
@@ -55,34 +41,10 @@ async function throttle (
     const [ response , delta ] =
         await timed(context)
 
-    console.debug('Delta',delta,10 - delta)
-
     if( delta < 10 )
-        await wait( 10 - delta )
+        await delay( 10 - delta )
 
     return response
-}
-
-
-async function checkAuthentication (
-    request : Request ,
-    context : Context
-){
-
-    const { headers } = request
-
-    const cookies = new CookieMap(headers)
-
-    const session = cookies
-        .get('Session_Admin') ?? null
-
-    context.state.isAuthenticated =
-        AdminSession.check(session)
-
-    console.debug('Admin Session Cookie',session,context.state)
-
-    return await
-        context.next()
 }
 
 

@@ -3,6 +3,7 @@ export { handler }
 
 import { MiddlewareHandlerContext , MiddlewareHandler } from 'Fresh/server.ts'
 import { getCookies } from 'Deno/http/cookie.ts'
+import { logRequestDuration } from '../Middleware/LogRequestDuration.ts'
 
 
 interface State {
@@ -16,37 +17,11 @@ type Context = MiddlewareHandlerContext<State>
 
 const handler = [
 
-    logDuration ,
+    logRequestDuration ,
     general
 
-] satisfies Middleware
+]
 
-
-async function logDuration (
-    request : Request ,
-    context : Context
-){
-
-    console.log('Beffore')
-
-    const before = Date.now()
-
-    const response = await
-        context.next()
-
-    const after = Date.now()
-
-    const delta = ( after - before )
-
-    const url = new URL(request.url)
-
-    const millis = String(delta)
-        .padStart(3,' ')
-
-    console.debug(`> ${ millis }ms | ${ url.pathname }`)
-
-    return response
-}
 
 
 async function general (

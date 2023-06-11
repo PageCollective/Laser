@@ -44,6 +44,7 @@
 
         "TOTP" : "https://deno.land/x/otpauth@v9.1.2/dist/otpauth.esm.js" ,
 
-        "Cookie" : "https://deno.land/std@0.191.0/http/cookie.ts"
+        "Cookie" : "https://deno.land/std@0.191.0/http/cookie.ts" ,
+        "Async" : "https://deno.land/std@0.191.0/async/mod.ts"
     }
 }
