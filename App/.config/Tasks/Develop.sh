@@ -9,4 +9,5 @@ set +a
 deno run            \
     --watch         \
     --allow-all     \
+    --unstable      \
     Source/dev.ts

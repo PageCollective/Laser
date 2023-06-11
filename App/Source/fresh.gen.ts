@@ -3,31 +3,43 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import config from "./deno.json" assert { type: "json" };
-import * as $0 from "./routes/Admin/index.tsx";
-import * as $1 from "./routes/Appointments/index.tsx";
-import * as $2 from "./routes/_app.tsx";
-import * as $3 from "./routes/index.tsx";
-import * as $4 from "./routes/x/[Product].tsx";
+import * as $0 from "./routes/Admin/Dashboard.tsx";
+import * as $1 from "./routes/Admin/Login.tsx";
+import * as $2 from "./routes/Admin/Product.tsx";
+import * as $3 from "./routes/Admin/_middleware.tsx";
+import * as $4 from "./routes/Admin/index.tsx";
+import * as $5 from "./routes/Appointments/index.tsx";
+import * as $6 from "./routes/_app.tsx";
+import * as $7 from "./routes/_middleware.tsx";
+import * as $8 from "./routes/index.tsx";
+import * as $9 from "./routes/x/[Product].tsx";
 import * as $$0 from "./islands/Cart.tsx";
 import * as $$1 from "./islands/Footer.tsx";
-import * as $$2 from "./islands/Settings.tsx";
-import * as $$3 from "./islands/SettingsData.tsx";
-import * as $$4 from "./islands/Wrap.tsx";
+import * as $$2 from "./islands/ImageUpload.tsx";
+import * as $$3 from "./islands/Settings.tsx";
+import * as $$4 from "./islands/SettingsData.tsx";
+import * as $$5 from "./islands/Wrap.tsx";
 
 const manifest = {
   routes: {
-    "./routes/Admin/index.tsx": $0,
-    "./routes/Appointments/index.tsx": $1,
-    "./routes/_app.tsx": $2,
-    "./routes/index.tsx": $3,
-    "./routes/x/[Product].tsx": $4,
+    "./routes/Admin/Dashboard.tsx": $0,
+    "./routes/Admin/Login.tsx": $1,
+    "./routes/Admin/Product.tsx": $2,
+    "./routes/Admin/_middleware.tsx": $3,
+    "./routes/Admin/index.tsx": $4,
+    "./routes/Appointments/index.tsx": $5,
+    "./routes/_app.tsx": $6,
+    "./routes/_middleware.tsx": $7,
+    "./routes/index.tsx": $8,
+    "./routes/x/[Product].tsx": $9,
   },
   islands: {
     "./islands/Cart.tsx": $$0,
     "./islands/Footer.tsx": $$1,
-    "./islands/Settings.tsx": $$2,
-    "./islands/SettingsData.tsx": $$3,
-    "./islands/Wrap.tsx": $$4,
+    "./islands/ImageUpload.tsx": $$2,
+    "./islands/Settings.tsx": $$3,
+    "./islands/SettingsData.tsx": $$4,
+    "./islands/Wrap.tsx": $$5,
   },
   baseUrl: import.meta.url,
   config,

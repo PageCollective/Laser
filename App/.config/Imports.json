@@ -11,7 +11,7 @@
 
         "Zod" : "https://deno.land/x/zod@v3.21.4/mod.ts" ,
 
-        "Fresh/": "https://deno.land/x/fresh@1.1.5/",
+        "Fresh/": "https://deno.land/x/fresh@1.1.6/",
 
         "preact": "https://esm.sh/preact@10.13.1",
         "preact/": "https://esm.sh/preact@10.13.1/",
@@ -36,8 +36,14 @@
 
         "Storefront/Types" : "../Source/Shopify/Storefront/Types.ts" ,
 
-        "Cookie" : "https://esm.sh/js-cookie@3.0.5" ,
+        "Cookies" : "https://esm.sh/js-cookie@3.0.5" ,
 
-        "Data" : "../Source/Data/_.ts"
+        "Data" : "../Source/Data/_.ts" ,
+
+        "Deno/": "https://deno.land/std@0.191.0/" ,
+
+        "TOTP" : "https://deno.land/x/otpauth@v9.1.2/dist/otpauth.esm.js" ,
+
+        "Cookie" : "https://deno.land/std@0.191.0/http/cookie.ts"
     }
 }

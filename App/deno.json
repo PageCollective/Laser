@@ -2,7 +2,8 @@
     "tasks" : {
         "tunnel" : "bash .config/Tasks/Tunnel.sh" ,
         "dev" : "bash .config/Tasks/Develop.sh" ,
-        "env" : ".config/Tasks/Environment.ts"
+        "env" : ".config/Tasks/Environment.ts" ,
+        "secret" : ".config/Tasks/Secret.ts"
     },
 
     "compilerOptions" : {
@@ -16,7 +17,8 @@
             "dom.iterable",
             "dom",
 
-            "deno.ns"
+            "deno.ns" ,
+            "deno.unstable"
         ]
     },
 

@@ -6,7 +6,7 @@ import { useLayoutEffect } from 'preact/hooks'
 import { IS_BROWSER } from 'Fresh/runtime.ts'
 import { detailed } from '../islands/Settings.tsx'
 
-import Cookie from 'Cookie'
+import Cookie from 'Cookies'
 
 
 interface Props {

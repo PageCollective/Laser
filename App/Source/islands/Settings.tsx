@@ -5,7 +5,7 @@ import { useKeys } from '../Hooks/Keys.tsx'
 import { signal } from '@preact/signals'
 import { Toggle } from 'UI'
 
-import Cookie from 'Cookie'
+import Cookie from 'Cookies'
 
 
 export const detailed = signal(true)

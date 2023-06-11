@@ -2,8 +2,8 @@
 import { z } from 'Zod'
 
 
-const { parse } = JSON;
-const { env } = Deno;
+const { parse } = JSON
+const { env } = Deno
 
 
 const json = env
@@ -24,28 +24,16 @@ if( ! config )
 
 const Config = z.object({
 
-    Shopify : z.object({
+    Admin : z.object({
 
-        Host : z.string() ,
+        Password : z.string() ,
 
-        API : z.object({
+        TOTP : z.object({
 
-            Version : z.string() ,
-
-            Storefront : z.object({
-                Token : z.string()
-            }),
-
-            Admin : z.object({
-
-                Secret : z.string() ,
-                Token : z.string()
-            })
+            Secret : z
+                .string()
+                .min(20)
         })
-    }),
-
-    App : z.object({
-        Interface : z.string()
     })
 })
 
